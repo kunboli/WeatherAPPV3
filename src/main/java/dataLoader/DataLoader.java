@@ -25,7 +25,7 @@ public class DataLoader implements ApplicationRunner {
 	CitiesDTORepository citiesDTORepository;
 	
 	
-	
+	// ADI: use sql command to inject data
 	public void run(ApplicationArguments args) throws Exception {
 		Cities auckland = new Cities(001,"Auckland", 15, "63%");
 		Cities sydney = new Cities(002,"Sydney", 16, "77%");
