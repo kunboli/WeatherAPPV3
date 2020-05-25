@@ -8,7 +8,8 @@ import model.Cities;
 import service.ConvertTempToFahrenheit;
 
 class ServiceTest {
-	
+	// ADI: need to mock Repositor class when testing service class
+	// take a look at Mockito
 	ConvertTempToFahrenheit service = new ConvertTempToFahrenheit();
 	
 	@Test

@@ -11,24 +11,31 @@ import model.Cities;
 import model.CitiesDTO;
 import repository.CitiesDTORepository;
 import repository.CitiesRepository;
+import service.CityService;
 
 @RestController
 @RequestMapping("/api")
 public class CitiesRestController {
-	
+
+	// ADI: controller should not interact directly with repository
 	@Autowired 
 	CitiesRepository citiesRepository;
 	
 	@Autowired
 	CitiesDTORepository citiesDTORepository;
-	
+
+	@Autowired
+	CityService cityService;
+
+	// ADI: we dont need this
 	@GetMapping("/cities")
 	public List<Cities>  getCities() {
 		return (List<Cities>) citiesRepository.findAll();
 	}
-	
+
+	// ADI: rename to /cities
 	@GetMapping("/citiesDTO")
 	public List<CitiesDTO> getCitiesDTO() {
-		return (List<CitiesDTO>) citiesDTORepository.findAll();
+		return cityService.getCities();
 	}
 }

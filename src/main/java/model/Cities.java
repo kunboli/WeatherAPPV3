@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Entity
+// ADI: City
 public class Cities {
 	@Id
 	private int citiesID;
