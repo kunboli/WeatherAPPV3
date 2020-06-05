@@ -9,29 +9,17 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 // ADI: City
-public class Cities {
+public class City {
 	@Id
 	private int citiesID;
 	private String name;
 	private int temperature;
 	private String humidity;
 	
-	public Cities() {
+	public City() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	
-
-	public Cities(int citiesID, String name, int temperature, String humidity) {
-		super();
-		this.citiesID = citiesID;
-		this.name = name;
-		this.temperature = temperature;
-		this.humidity = humidity;
-	}
-
-
 
 	public int getCitiesID() {
 		return citiesID;
@@ -57,18 +45,23 @@ public class Cities {
 		this.temperature = temperature;
 	}
 
-
 	public String getHumidity() {
 		return humidity;
 	}
-
-
 
 	public void setHumidity(String humidity) {
 		this.humidity = humidity;
 	}
 
-
+	public City(int citiesID, String name, int temperature, String humidity) {
+		super();
+		this.citiesID = citiesID;
+		this.name = name;
+		this.temperature = temperature;
+		this.humidity = humidity;
+	}
+	
+	
 	
 	
 	

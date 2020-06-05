@@ -6,36 +6,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import model.Cities;
-import model.CitiesDTO;
-import repository.CitiesDTORepository;
-import repository.CitiesRepository;
+import model.CityDTO;
 import service.CityService;
 
 @RestController
 @RequestMapping("/api")
 public class CitiesRestController {
 
-	// ADI: controller should not interact directly with repository
-	@Autowired 
-	CitiesRepository citiesRepository;
-	
-	@Autowired
-	CitiesDTORepository citiesDTORepository;
+//	// ADI: controller should not interact directly with repository
+//	@Autowired 
+//	CitiesRepository citiesRepository;
+//	
+//	@Autowired
+//	CitiesDTORepository citiesDTORepository;
 
 	@Autowired
 	CityService cityService;
 
-	// ADI: we dont need this
-	@GetMapping("/cities")
-	public List<Cities>  getCities() {
-		return (List<Cities>) citiesRepository.findAll();
-	}
+
 
 	// ADI: rename to /cities
-	@GetMapping("/citiesDTO")
-	public List<CitiesDTO> getCitiesDTO() {
+	@GetMapping("/cities")
+	public List<CityDTO> getCitiesDTO() {
 		return cityService.getCities();
 	}
 }

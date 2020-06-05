@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import org.springframework.stereotype.Component;
@@ -7,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Component
 // ADI: CityDTO
-public class CitiesDTO {
+public class CityDTO {
 	
 	@Id
 	private int citiesDTOID;
@@ -15,12 +17,12 @@ public class CitiesDTO {
 	private String temperature;
 	private String Humidity;
 	
-	public CitiesDTO() {
+	public CityDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public CitiesDTO(int citiesDTOID, String name, String temperature, String humidity) {
+	public CityDTO(int citiesDTOID, String name, String temperature, String humidity) {
 		super();
 		this.citiesDTOID = citiesDTOID;
 		this.name = name;
@@ -58,6 +60,11 @@ public class CitiesDTO {
 
 	public void setHumidity(String humidity) {
 		Humidity = humidity;
+	}
+
+	public List<CityDTO> asList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

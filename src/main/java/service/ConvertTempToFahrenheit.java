@@ -1,12 +1,12 @@
 package service;
 
-import model.Cities;
-import model.CitiesDTO;
+import model.City;
+import model.CityDTO;
 
 public class ConvertTempToFahrenheit {
 
-	public CitiesDTO convertCitiesToCitiesDTO(Cities cities) {
-			CitiesDTO citiesDTO = new CitiesDTO(cities.getCitiesID(), cities.getName(), convertTemp(cities.getTemperature()), cities.getHumidity());
+	public CityDTO convertCitiesToCitiesDTO(City cities) {
+			CityDTO citiesDTO = new CityDTO(cities.getCitiesID(), cities.getName(), convertTemp(cities.getTemperature()), cities.getHumidity());
 			return citiesDTO;
 		}
 	
