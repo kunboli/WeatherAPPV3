@@ -18,7 +18,7 @@ public class CityService {
     CityRepository cityRepository;
 
     // ADI: should handle conversion between Cities and CitiesDTO
-    public List<CityDTO> getCities() {
+    public ArrayList<CityDTO> getCities() {
     	List<City> city = (List) cityRepository.findAll();
         // retrieve data from repository
     	List<CityDTO> cityDtoList = new ArrayList<>();
@@ -31,7 +31,7 @@ public class CityService {
             cityDtoList.add(citiesDTO);
     		
     	}
-    	return cityDtoList;
+    	return (ArrayList<CityDTO>) cityDtoList;
     }
     
     public static String convertTemp(int temperature) {

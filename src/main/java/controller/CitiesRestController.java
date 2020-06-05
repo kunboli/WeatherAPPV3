@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class CitiesRestController {
 
 	// ADI: rename to /cities
 	@GetMapping("/cities")
-	public List<CityDTO> getCitiesDTO() {
+	public ArrayList<CityDTO> getCitiesDTO() {
 		return cityService.getCities();
 	}
 }

@@ -1,13 +1,17 @@
 package Mock;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+
+import org.junit.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import controller.CitiesRestController;
 import model.City;
@@ -18,14 +22,25 @@ public class ServiceCitiesMockTest {
 	
 	
 	
+	@Mock
+	CityService mockCityService;
+
+	@InjectMocks
+	CitiesRestController controller = new CitiesRestController();
+	
+	@Before
+	public void init() {
+		MockitoAnnotations.initMocks(this);
+	}
+
+	
+	
 	@Test
 	public void service_Cities_Using_A_Mock() {
-		CityService mockCityService = mock(CityService.class);
-		CitiesRestController controller = new CitiesRestController();		
-		List<CityDTO> cityDTOList = new ArrayList<CityDTO>();		
+		ArrayList<CityDTO> cityDTOList = new ArrayList<>();
 		when(mockCityService.getCities()).thenReturn(cityDTOList);
-		List<CityDTO> dtoList = controller.getCitiesDTO();
-		assertEquals(cityDTOList, dtoList);
+		ArrayList<CityDTO> dtoList = controller.getCitiesDTO();
+		assertEquals(dtoList, cityDTOList);
 	}
 
 }
